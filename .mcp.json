@@ -4,10 +4,6 @@
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp@latest"]
     },
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    },
     "mem0": {
       "command": "uvx",
       "args": ["mem0-mcp-server"],
