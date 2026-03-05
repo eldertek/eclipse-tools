@@ -32,6 +32,7 @@ Use the remember skill's algorithm:
 3. Hash accordingly
 
 Search Mem0 for ALL items tagged with this project_id.
+This includes BOTH `ECL-IDEA` and `ECL-FEAT` items — they share the same lifecycle and appear together in the dashboard.
 
 ## Step 3: Display Dashboard
 
