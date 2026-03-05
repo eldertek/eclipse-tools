@@ -66,21 +66,25 @@ If user passed a focus area, only launch matching agents:
 - "ux" or "ui" → ideation-ux only
 - No arguments or "all" → launch all 6
 
-## Playwright Pre-check (for UX agent)
+## Browser Pre-check (for UX agent)
 
 Before dispatching agents, check if a dev server is running:
 
 1. Read ECL-CTX for `dev_url` — if set, use it
 2. Else, read package.json `scripts` for "dev"/"start"/"serve" — extract port
-3. Attempt to navigate to the detected URL using Playwright MCP (`browser_navigate`)
+3. Attempt to navigate to the detected URL using agent-browser CLI:
+   ```bash
+   agent-browser open <detected-url> && agent-browser wait --load networkidle
+   ```
 4. If successful:
-   - Take screenshots of key pages (home, login if exists)
-   - Capture accessibility snapshot (`browser_snapshot`)
+   - Take screenshots: `agent-browser screenshot --full`
+   - Capture accessibility snapshot: `agent-browser snapshot -i -c`
    - Pass screenshots and snapshot observations to the UX agent as extra context
+   - Close browser: `agent-browser close`
 5. If failed or no URL detected:
    - Log: "No running app detected — UX agent will use static analysis only"
-   - Pass no Playwright context to UX agent
-6. **NEVER block the pipeline** if Playwright fails. Catch all errors, log, continue.
+   - Pass no browser context to UX agent
+6. **NEVER block the pipeline** if agent-browser fails. Catch all errors, log, continue.
 
 ## Dispatch Phase
 
@@ -90,7 +94,7 @@ Each agent receives:
 - The project root path
 - The Mem0 summary (existing items for dedup avoidance)
 - The ECL-CTX tech stack info
-- For UX agent: Playwright observations if available
+- For UX agent: Browser observations if available
 
 Prompt template for each agent:
 
@@ -102,7 +106,7 @@ Tech stack: [from ECL-CTX]
 Existing Mem0 items (do NOT re-suggest):
 [compact summary]
 
-[For UX agent only: Playwright observations: ...]
+[For UX agent only: Browser observations: ...]
 
 Return your findings as a strict JSON array. Return [] if nothing found.
 ```
