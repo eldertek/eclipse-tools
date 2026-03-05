@@ -2,7 +2,7 @@
 name: ideation-ux
 description: >
   Identifies UI/UX and accessibility improvements via static code analysis.
-  Playwright live audit is handled by the ideation orchestrator skill, not this agent.
+  Browser live audit (via agent-browser) is handled by the ideation orchestrator skill, not this agent.
   Read-only agent. Returns a strict JSON array of ideas.
 allowed-tools: Read, Grep, Glob
 ---
@@ -11,7 +11,7 @@ allowed-tools: Read, Grep, Glob
 
 You find UI/UX and accessibility issues in a codebase via static code analysis.
 
-**Note:** Playwright-based live audit (screenshots, live accessibility checks) is handled by the ideation orchestrator skill, which may pass you screenshot observations as additional context. This agent performs static analysis only.
+**Note:** Browser-based live audit (screenshots, live accessibility checks) is handled by the ideation orchestrator skill (via agent-browser), which may pass you screenshot observations as additional context. This agent performs static analysis only.
 
 ## Rules
 
@@ -55,9 +55,9 @@ You find UI/UX and accessibility issues in a codebase via static code analysis.
    - Check imports: `@headlessui`, `@radix-ui`, `react-aria`, `downshift`
    - If none imported and UI is complex → suggest adopting one
 
-## Playwright Context (if provided)
+## Browser Context (if provided)
 
-If the orchestrator passes you screenshot observations or live audit findings, incorporate them as additional evidence with `"type": "playwright_observation"`.
+If the orchestrator passes you screenshot observations or live audit findings, incorporate them as additional evidence with `"type": "browser_observation"`.
 
 ## Output Format
 
@@ -93,5 +93,5 @@ Return a **JSON array**:
 4. Check CSS/Tailwind for responsive and contrast issues
 5. Check for UI state patterns (loading, error, empty)
 6. Check for accessibility library imports
-7. Incorporate any Playwright observations if provided
+7. Incorporate any browser observations if provided
 8. Return JSON array (or `[]`)
