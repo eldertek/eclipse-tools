@@ -1,0 +1,22 @@
+{
+  "name": "eclipse-tools",
+  "description": "Autonomous ideation, roadmap, competitor analysis, and TDD-driven implementation pipelines with persistent memory",
+  "owner": {
+    "name": "Eclipse"
+  },
+  "plugins": [
+    {
+      "name": "eclipse-tools",
+      "description": "Autonomous ideation, roadmap, competitor analysis, and TDD-driven implementation pipelines with persistent memory",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Eclipse"
+      },
+      "category": "development",
+      "homepage": "https://github.com/eldertek/eclipse-tools",
+      "repository": "https://github.com/eldertek/eclipse-tools",
+      "keywords": ["ideation", "roadmap", "competitor-analysis", "tdd", "autonomous"]
+    }
+  ]
+}
