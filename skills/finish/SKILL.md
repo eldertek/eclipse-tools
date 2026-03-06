@@ -3,7 +3,6 @@ name: finish
 description: >
   Finalize a completed build: run full test suite, verify TDD artifacts (1 per task),
   prepare merge/PR text. Updates Mem0 status to "done".
-disable-model-invocation: true
 argument-hint: "[ECL-IDEA-NNNN or ECL-FEAT-NNNN]"
 ---
 

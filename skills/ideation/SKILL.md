@@ -4,7 +4,6 @@ description: >
   Run a comprehensive ideation analysis on the current project. Launches 6 specialized agents in parallel
   to find code improvements, quality issues, documentation gaps, performance optimizations, security
   vulnerabilities, and UI/UX issues. Results are stored in Mem0 as draft ideas for triage.
-disable-model-invocation: true
 argument-hint: "[focus area]"
 ---
 

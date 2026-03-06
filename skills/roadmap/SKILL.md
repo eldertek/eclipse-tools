@@ -4,7 +4,6 @@ description: >
   Generate a product roadmap with MoSCoW-prioritized features, phases, and milestones.
   Optionally includes competitor analysis via --with-competitor flag.
   Results stored in Mem0 as ECL-FEAT items (not ECL-IDEA).
-disable-model-invocation: true
 argument-hint: "[--with-competitor]"
 ---
 

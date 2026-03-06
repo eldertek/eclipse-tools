@@ -4,7 +4,6 @@ description: >
   Execute a TDD implementation plan task-by-task using subagents.
   Each task: implementer (RED-GREEN-COMMIT) → spec-reviewer → code-quality-reviewer.
   Strict Mem0 transitions, max 3 review cycles, mandatory TDD artifacts.
-disable-model-invocation: true
 argument-hint: "[ECL-IDEA-NNNN or ECL-FEAT-NNNN]"
 ---
 

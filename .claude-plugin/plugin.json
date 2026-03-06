@@ -1,7 +1,7 @@
 {
   "name": "eclipse-tools",
-  "version": "0.1.0",
-  "description": "Autonomous ideation, roadmap, competitor analysis, and TDD-driven implementation pipelines with persistent memory",
+  "version": "1.0.0",
+  "description": "Autonomous ideation, roadmap, competitor analysis, bug hunting, and TDD-driven implementation pipelines with persistent memory",
   "author": {
     "name": "Eclipse"
   },

@@ -4,7 +4,6 @@ description: >
   Analyze competitors for the current project. Uses WebSearch to find alternatives,
   user complaints, and market gaps. Results stored in Mem0 with full source traceability.
   Generates derived ideas (ECL-IDEA) from high-opportunity gaps.
-disable-model-invocation: true
 argument-hint: "[sector or project description]"
 ---
 

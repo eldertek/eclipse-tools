@@ -4,7 +4,6 @@ description: >
   Daily dashboard showing all ideas, features, bugs, and their status from Mem0.
   Read-only by default — only writes to Mem0 when user explicitly chooses an action.
   Use when starting a work session, checking progress, or deciding what to work on next.
-disable-model-invocation: true
 ---
 
 # Eclipse Dashboard

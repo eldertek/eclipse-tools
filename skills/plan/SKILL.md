@@ -5,7 +5,6 @@ description: >
   exact file paths, test commands, allowed_paths scope contracts, and definitions of done.
   Detects the project's test runner and generates stack-specific commands.
   No code "novels" — each task is one RED-GREEN-COMMIT cycle.
-disable-model-invocation: true
 argument-hint: "[ECL-IDEA-NNNN or ECL-FEAT-NNNN]"
 ---
 

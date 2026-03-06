@@ -4,7 +4,6 @@ description: >
   Brainstorm and design a solution for an accepted idea or feature.
   Explores the codebase, asks clarifying questions, proposes approaches, produces a design document
   with scope, acceptance criteria, and testing strategy. Updates Mem0 status to "designed".
-disable-model-invocation: true
 argument-hint: "[ECL-IDEA-NNNN or ECL-FEAT-NNNN or text description]"
 ---
 

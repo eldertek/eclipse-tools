@@ -6,7 +6,6 @@ description: >
   root cause (file:line), and proof. Waits for explicit validation before fixing.
   After fix is validated and committed, automatically relaunches to hunt the next bug.
   Uses Mem0 (ECL-BUG) with heatmap strategy to explore least-covered zones first.
-disable-model-invocation: true
 argument-hint: "[zone or area to focus on]"
 ---
 
