@@ -2,7 +2,7 @@
 name: remember
 description: >
   Persist project insights, decisions, and workflow state into Mem0.
-  Auto-invoked after ideation, roadmap, competitor, design, plan, build, and finish workflows.
+  Auto-invoked after ideation, roadmap, competitor, design, plan, build, finish, and bug-hunter workflows.
   Handles project_id scoping, schema versioning, deduplication, and migration.
 user-invocable: false
 ---
@@ -73,7 +73,7 @@ For each existing item:
 ## ID Generation
 
 Format: `ECL-{TYPE}-{NNNN}`
-- TYPE: `IDEA`, `COMP`, `FEAT`, `CTX`
+- TYPE: `IDEA`, `COMP`, `FEAT`, `CTX`, `BUG`
 - NNNN: zero-padded 4 digits, sequential
 - To find next ID: search Mem0 for all items with same project_id + type prefix, find highest NNNN, increment by 1
 - If no existing items: start at 0001
@@ -83,7 +83,7 @@ Format: `ECL-{TYPE}-{NNNN}`
 Use the Mem0 MCP tools. Each item = one memory entry.
 Tag every entry with metadata for retrieval:
 - `project_id`: the calculated project ID
-- `eclipse_type`: IDEA | COMP | FEAT | CTX
+- `eclipse_type`: IDEA | COMP | FEAT | CTX | BUG
 - `eclipse_id`: the full ECL-* ID
 - `schema_version`: 2
 
