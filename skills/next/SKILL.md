@@ -1,7 +1,7 @@
 ---
 name: next
 description: >
-  Daily dashboard showing all ideas, features, and their status from Mem0.
+  Daily dashboard showing all ideas, features, bugs, and their status from Mem0.
   Read-only by default — only writes to Mem0 when user explicitly chooses an action.
   Use when starting a work session, checking progress, or deciding what to work on next.
 disable-model-invocation: true
@@ -32,7 +32,7 @@ Use the remember skill's algorithm:
 3. Hash accordingly
 
 Search Mem0 for ALL items tagged with this project_id.
-This includes BOTH `ECL-IDEA` and `ECL-FEAT` items — they share the same lifecycle and appear together in the dashboard.
+This includes `ECL-IDEA`, `ECL-FEAT`, and `ECL-BUG` items — they share the same lifecycle and appear together in the dashboard.
 
 ## Step 3: Display Dashboard
 
@@ -41,6 +41,9 @@ Organize items by status in this exact order. Only show sections that have items
 ```
 Eclipse Dashboard — [project_name or project_id]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 BUGS (sorted by severity, then created_at ASC)
+  [ECL-BUG-0001] [title] — [severity] — [status]
 
 🏗️ EN COURS
   [id] [title] — building, task N/M
@@ -57,7 +60,7 @@ Eclipse Dashboard — [project_name or project_id]
 📝 A TRIER
   N nouvelles ideas en draft
 
-── X done | Y deferred | Z rejected | W abandoned ──
+── X done | Y deferred | Z rejected | W abandoned | V wont_fix ──
 ```
 
 Priority sort order: critical > high > medium > low > null.
@@ -77,13 +80,16 @@ Pipeline vide. Aucune idea trouvee.
 Follow this priority chain strictly. Pick the FIRST that matches:
 
 1. `building` exists → "Continuer [id]: [title] — Task N/M"
-2. `blocked` exists → "Debloquer [id]: [title] — [blocked_reason]"
-3. `needs_review` exists → "Valider [id]: [title] — build termine"
-4. `planned` exists (priority critical or high) → "Lancer le build de [id]: [title]"
-5. `designed` exists → "Creer le plan pour [id]: [title]"
-6. `accepted` exists → "Lancer le design de [id]: [title]"
-7. `draft` exists → "Trier [N] nouvelles ideas"
-8. Nothing → "Pipeline vide. Lancer /eclipse-tools:ideation ?"
+2. Bug `found` exists → "Bug trouve: [id] [title] ([severity]). Valider ou rejeter ?"
+3. Bug `validated` exists → "Corriger [id]: [title]"
+4. Bug `verified` exists → "Valider le fix de [id]: [title]"
+5. `blocked` exists → "Debloquer [id]: [title] — [blocked_reason]"
+6. `needs_review` exists → "Valider [id]: [title] — build termine"
+7. `planned` exists (priority critical or high) → "Lancer le build de [id]: [title]"
+8. `designed` exists → "Creer le plan pour [id]: [title]"
+9. `accepted` exists → "Lancer le design de [id]: [title]"
+10. `draft` exists → "Trier [N] nouvelles ideas"
+11. Nothing → "Pipeline vide. Lancer /eclipse-tools:ideation ?"
 
 ### Non-Ambiguity Rule
 
@@ -109,6 +115,7 @@ The user can respond with:
 - "ideation" → inform user to run `/eclipse-tools:ideation`
 - "roadmap" → inform user to run `/eclipse-tools:roadmap`
 - "competitor" → inform user to run `/eclipse-tools:competitor`
+- "bug-hunter" → inform user to run `/eclipse-tools:bug-hunter`
 - "rien" / "quit" / "q" → exit. ZERO Mem0 writes.
 
 ## Rapid Triage Mode
